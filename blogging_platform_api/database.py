@@ -12,3 +12,10 @@ port = os.getenv("PORT")
 
 conn = psycopg2.connect(host=host, dbname=dbname, user=user, password=password, port=port)
 
+cur = conn.cursor()
+
+cur.execute()
+
+conn.commit()
+cur.close()
+conn.close()
