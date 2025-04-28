@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from database import init_database, create_post
 
 app = Flask(__name__)
 
@@ -10,6 +11,14 @@ def index():
 @app.route("/create", methods=["GET","POST"])
 
 def create():
+    if request.method == "POST":
+        title = request.form["title"]
+        content = request.form["content"]
+        catagory = request.form["catagory"]
+        tags = request.form["tags"]
+
+        create_post(title,content,catagory,tags)
+
     return render_template("create.html")
 
 @app.route("/update", methods=["GET","POST"])
@@ -28,4 +37,5 @@ def search():
     return render_template("search.html")
 
 if __name__ == "__main__":
+    init_database()
     app.run(debug=True)
