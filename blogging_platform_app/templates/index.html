@@ -11,16 +11,16 @@
         <div class="tab">
             <h1>Options</h1>
             <form action="{{ url_for('search') }}" method="post">
-                <button type="submit">Search</button>
+                <button class="tab-button" type="submit">Search</button>
             </form>
             <form action="{{ url_for('create') }}" method="post">
-                <button type="submit">Create</button>
+                <button class="tab-button" type="submit">Create</button>
             </form>
             <form action="{{ url_for('update') }}" method="post">
-                <button type="submit">Update</button>
+                <button class="tab-button" type="submit">Update</button>
             </form>
             <form action="{{ url_for('delete') }}" method="post">
-                <button type="submit">Delete</button>
+                <button class="tab-button" type="submit">Delete</button>
             </form>
         </div>
         <div class="main">
