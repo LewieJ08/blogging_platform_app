@@ -10,12 +10,14 @@ user = os.getenv("USER")
 password = os.getenv("PASSWORD")
 port = os.getenv("PORT")
 
-conn = psycopg2.connect(host=host, dbname=dbname, user=user, password=password, port=port)
+def get_connection():
+    return psycopg2.connect(host=host, dbname=dbname, user=user, password=password, port=port)
 
-cur = conn.cursor()
+def init_database():
+    with open("schema.sql", "r") as file:
+        schema = file.read()
 
-cur.execute()
-
-conn.commit()
-cur.close()
-conn.close()
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(schema)
+            conn.commit()
