@@ -21,3 +21,12 @@ def init_database():
         with conn.cursor() as cur:
             cur.execute(schema)
             conn.commit()
+
+def create_post(title,content,catagory,tags):
+    with open("queries/create_post.sql","r") as file:
+        query = file.read()
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query)
+            conn.commit()
