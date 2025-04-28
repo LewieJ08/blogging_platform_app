@@ -21,14 +21,41 @@ h3 {
     padding-left: 10px;
 }
 
-button {
-    background-color: #232f3e;
+label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
-    width: 80%;
-    margin: 10px;
-    border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin-right: auto;
+}
+
+textarea {
+    color: white;
+    background-color: #232f3e;
+    resize: none;
+    border: solid;
+    border-color: white;
+    border-width: 0.5px;
+    width: 496px;
+    padding-bottom: 10px;
+}
+
+select {
+    color: white;
+    background-color: #232f3e;
+    border: solid;
+    border-color: white;
+    border-width: 0.5px;
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    color: white;
+    background-color: #232f3e;
+    resize: none;
+    border: solid;
+    border-color: white;
+    border-width: 0.5px;
+    width: 496px;
 }
 
 button:hover {
@@ -47,9 +74,39 @@ button:hover {
     width: 20%;
     height: 100vh;
     text-align: center;
-  }
+}
 
 .main {
     flex: 1;
     background-color: #232f3e;
+}
+
+.create-form {
+    width: 500px;
+    border: solid;
+    border-radius: 10px;
+    border-color: white;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    text-align: left;
+}
+
+.tab-button {
+    background-color: #232f3e;
+    color: white;
+    width: 80%;
+    margin: 10px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.post-button {
+    background-color: #232f3e;
+    color: white;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
 }
