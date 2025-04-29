@@ -14,10 +14,10 @@ def create():
     if request.method == "POST":
         title = request.form["title"]
         content = request.form["content"]
-        catagory = request.form["catagory"]
+        category = request.form["category"]
         tags = request.form["tags"]
 
-        create_post(title,content,catagory,tags)
+        create_post(title,content,category,tags)
 
     return render_template("create.html")
 
