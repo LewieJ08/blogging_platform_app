@@ -28,5 +28,5 @@ def create_post(title,content,catagory,tags):
 
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(query)
+            cur.execute(query,(title,content,catagory,tags))
             conn.commit()
