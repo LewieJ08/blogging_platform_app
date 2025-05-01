@@ -31,6 +31,13 @@
             <h2>Create Post</h2>
             <hr>
             <div class="create-form">
+                {% if title is not none %}
+                <h2>Post Created!</h2>
+                <h3>Title: {{ title }}</h3>
+                <form action="{{ url_for('index') }}">
+                    <button class="post-button" type="submit">Return</button>
+                </form>
+                {% else %}
                 <form action="{{ url_for('create') }}" method="post">
                     <label for="title">Title</label> <br>
                     <input type="text" name="title" id="title"> <br>
@@ -63,6 +70,7 @@
                     <input type="text" name="tags" id="tags" placeholder="Separate Tags with a comma (,)"> <br>
                     <button class="post-button" type="submit">Post</button>
                 </form>
+                {% endif %}
             </div>
         </div>
     </div>
