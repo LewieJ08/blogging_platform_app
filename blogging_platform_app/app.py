@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 from database import init_database, create_post
 
 app = Flask(__name__)
@@ -17,9 +17,14 @@ def create():
         category = request.form["category"]
         tags = request.form["tags"]
 
-        create_post(title,content,category,tags)
+        if not title or not content or not category or not tags:
+            print("form field empty")
+            return render_template("create.html", title = None)
 
-    return render_template("create.html")
+        create_post(title,content,category,tags)
+        return redirect(url_for("index"))
+    
+    return render_template("create.html", title = None)
 
 @app.route("/update", methods=["GET","POST"])
 
