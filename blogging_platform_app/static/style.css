@@ -81,6 +81,11 @@ button:hover {
     background-color: #232f3e;
 }
 
+.posts-h3 {
+    text-align: left;
+    margin-left: 10px;
+}
+
 .create-form {
     width: 500px;
     border: solid;
