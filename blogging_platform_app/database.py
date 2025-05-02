@@ -22,6 +22,16 @@ def init_database():
             cur.execute(schema)
             conn.commit()
 
+def get_all_posts():
+    with open("queries/get_all_posts.sql") as file:
+        query = file.read()
+    
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query) 
+            return cur.fetchall()
+
+
 def create_post(title,content,category,tags):
     with open("queries/create_post.sql","r") as file:
         query = file.read()
