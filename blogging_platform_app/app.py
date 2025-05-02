@@ -17,12 +17,14 @@ def create():
         category = request.form["category"]
         tags = request.form["tags"]
 
-        if not title or not content or not category or not tags:
+        if not title or not content or not category:
             print("form field empty")
             return render_template("create.html", title = None)
+        
+        tags = tags.split(",")
 
         create_post(title,content,category,tags)
-        return redirect(url_for("index"))
+        return render_template("create.html", title = title)
     
     return render_template("create.html", title = None)
 
