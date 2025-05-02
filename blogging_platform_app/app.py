@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, url_for, redirect
-from database import init_database, create_post
+from database import init_database, create_post, get_all_posts
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 
 def index():
-    return render_template("index.html")
+    posts = get_all_posts()
+    return render_template("index.html", posts = posts)
 
 @app.route("/create", methods=["GET","POST"])
 
@@ -28,10 +29,17 @@ def create():
     
     return render_template("create.html", title = None)
 
-@app.route("/update", methods=["GET","POST"])
+@app.route("/update", methods=["GET","POST","PUT"])
 
 def update():
-    return render_template("update.html")
+    posts = get_all_posts()
+
+    if request.method == "POST":
+        pass 
+    elif request.method == "PUT":
+        pass
+
+    return render_template("update.html", posts = posts)
 
 @app.route("/delete", methods=["GET","POST"])
 
@@ -42,6 +50,11 @@ def delete():
 
 def search():
     return render_template("search.html")
+
+@app.route("/post/<int:post_id>")
+
+def post(post_id):
+    return render_template("post.html")
 
 if __name__ == "__main__":
     init_database()
