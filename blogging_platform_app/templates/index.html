@@ -27,6 +27,9 @@
             <h1>Blogging Platform</h1>
             <h2>Main Menu</h2>
             <h3 class="posts-h3">Posts:</h3> <hr>
+            {% for post in posts %}
+            <a  href="{{ url_for('post', post_id = post[0]) }}">{{ post[1] }}</a>
+            {% endfor %}
         </div>
     </div>
 </body>
