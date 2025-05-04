@@ -28,7 +28,9 @@
             <h2>Main Menu</h2>
             <h3 class="posts-h3">Posts:</h3> <hr>
             {% for post in posts %}
-            <a  href="{{ url_for('post', post_id = post[0]) }}">{{ post[1] }}</a>
+            <div class="post-tab">
+                <a class="post-preview-text" href="{{ url_for('post', post_id = post[0]) }}">{{ post[1] }}</a>
+            </div>
             {% endfor %}
         </div>
     </div>
