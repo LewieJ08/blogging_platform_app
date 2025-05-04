@@ -27,11 +27,18 @@
             <h1>Blogging Platform</h1>
             <h2>Main Menu</h2>
             <h3 class="posts-h3">Posts:</h3> <hr>
+            <div class="posts-list"></div>
             {% for post in posts %}
-            <div class="post-tab">
-                <a class="post-preview-text" href="{{ url_for('post', post_id = post[0]) }}">{{ post[1] }}</a>
-            </div>
+            <a class="post-item" href="{{ url_for('post', post_id = post[0]) }}">
+                <div class="post-item-content">
+                    <div>
+                        <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+                    </div>
+                    <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
+                </div>
+            </a>
             {% endfor %}
+            </div>
         </div>
     </div>
 </body>
