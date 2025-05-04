@@ -51,7 +51,7 @@ def delete():
 def search():
     return render_template("search.html")
 
-@app.route("/post/<int:post_id>")
+@app.route("/post/<int:post_id>", methods=["GET","POST"])
 
 def post(post_id):
     return render_template("post.html")
