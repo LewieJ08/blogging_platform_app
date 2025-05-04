@@ -12,7 +12,7 @@ h1 {
 h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
-    text-align: center;
+    text-align: center
 }
 
 h3 {
@@ -45,6 +45,7 @@ select {
     border-color: white;
     border-width: 0.5px;
     margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 input {
@@ -56,6 +57,7 @@ input {
     border-color: white;
     border-width: 0.5px;
     width: 496px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 button:hover {
@@ -116,17 +118,30 @@ button:hover {
     width: fit-content;
 }
 
-.post-tab {
-    border: solid;
-    border-color: white;
+
+.post-item {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    text-decoration: none;
+    color: white; 
     border-radius: 5px;
-    border-width: 0.5px;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.post-preview-text {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
+.post-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-item:hover {
+    background-color: white; 
+    color: #232f3e;
+}
+
+.post-date {
+    white-space: nowrap;
+    margin-left: 20px;
 }
