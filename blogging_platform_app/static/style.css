@@ -115,3 +115,18 @@ button:hover {
     margin: 0 auto;
     width: fit-content;
 }
+
+.post-tab {
+    border: solid;
+    border-color: white;
+    border-radius: 5px;
+    border-width: 0.5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.post-preview-text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
