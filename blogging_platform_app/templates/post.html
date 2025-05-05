@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ post[1] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="tab">
+            <h1>Options</h1>
+            <form action="{{ url_for('index') }}" method="get">
+                <button class="tab-button" type="submit">Main Menu</button>
+            </form>
+            <form action="{{ url_for('search') }}" method="get">
+                <button class="tab-button" type="submit">Search</button>
+            </form>
+            <form action="{{ url_for('create') }}" method="get">
+                <button class="tab-button" type="submit">Create</button>
+            </form>
+            <form action="{{ url_for('update') }}" method="get">
+                <button class="tab-button" type="submit">Update</button>
+            </form>
+            <form action="{{ url_for('delete') }}" method="getf">
+                <button class="tab-button" type="submit">Delete</button>
+            </form>
+        </div>
+        <div class="main">
+            <h1>Blogging Platform</h1>
+            <h2>{{ post[1] }}</h2>
+        </div>
 </body>
 </html>
