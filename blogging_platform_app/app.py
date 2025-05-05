@@ -55,7 +55,9 @@ def search():
 
 def post(post_id):
     post = get_post_by_id(post_id)
-    return render_template("post.html", post = post)
+    formatted_post = post[0]
+
+    return render_template("post.html", post = formatted_post)
 
 if __name__ == "__main__":
     init_database()
