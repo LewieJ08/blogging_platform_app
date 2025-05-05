@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect
-from database import init_database, create_post, get_all_posts
+from database import init_database, create_post, get_all_posts, get_post_by_id
 
 app = Flask(__name__)
 
@@ -54,7 +54,8 @@ def search():
 @app.route("/post/<int:post_id>", methods=["GET","POST"])
 
 def post(post_id):
-    return render_template("post.html")
+    post = get_post_by_id(post_id)
+    return render_template("post.html", post = post)
 
 if __name__ == "__main__":
     init_database()
