@@ -37,7 +37,7 @@ def get_post_by_id(post_id):
     
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(query,post_id) 
+            cur.execute(query,(post_id,)) 
             return cur.fetchall()
 
 
