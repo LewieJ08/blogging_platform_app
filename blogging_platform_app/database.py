@@ -30,6 +30,15 @@ def get_all_posts():
         with conn.cursor() as cur:
             cur.execute(query) 
             return cur.fetchall()
+        
+def get_post_by_id(post_id):
+    with open("queries/get_post_by_id.sql") as file:
+        query = file.read()
+    
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query,post_id) 
+            return cur.fetchall()
 
 
 def create_post(title,content,category,tags):
