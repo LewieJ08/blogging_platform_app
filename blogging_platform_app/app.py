@@ -57,7 +57,10 @@ def post(post_id):
     post = get_post_by_id(post_id)
     formatted_post = post[0]
 
-    return render_template("post.html", post = formatted_post)
+    raw_tags = formatted_post[4]
+    tags = raw_tags.strip("{}").split(",")
+
+    return render_template("post.html", post = formatted_post, tags = tags)
 
 if __name__ == "__main__":
     init_database()
