@@ -27,8 +27,16 @@
             </form>
         </div>
         <div class="main">
-            <h1>Blogging Platform</h1>
+            <h1>Blogging Platform</h1> <hr>
             <h2>{{ post[1] }}</h2>
+            <pre>{{ post[2] }}</pre> <hr>
+            <h4>Category - {{ post[3]|capitalize }}</h4>
+            <h4> Tags - 
+                {% for tag in tags %}
+                {{ tag }} 
+                {% endfor %}
+            </h4>
+            <h5>Published: {{ post[5].strftime('%d-%m-%Y') }}</h5>
         </div>
 </body>
 </html>
