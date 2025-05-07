@@ -3,9 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Update Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="tab">
+            <h1>Options</h1>
+            <form action="{{ url_for('index') }}" method="get">
+                <button class="tab-button" type="submit">Main Menu</button>
+            </form>
+            <form action="{{ url_for('search') }}" method="get">
+                <button class="tab-button" type="submit">Search</button>
+            </form>
+            <form action="{{ url_for('create') }}" method="get">
+                <button class="tab-button" type="submit">Create</button>
+            </form>
+            <form action="{{ url_for('delete') }}" method="get">
+                <button class="tab-button" type="submit">Delete</button>
+            </form>
+        </div>
+        <div class="main">
+            <h1>Blogging Platform</h1>
+            <h2>Update Post</h2>
+            <hr>
+                {% if title %}
+                <div class="div-form">
+                    <h2>Post Updated!</h2>
+                    <h3>Title: {{ title }}</h3>
+                    <form action="{{ url_for('index') }}">
+                        <button class="post-button" type="submit">Return</button>
+                    </form>
+                </div>
+                {% elif title is false %}
+                <div class="div-form">
+                    <form action="{{ url_for('update') }}" method="post">
+                        <label for="title">Title</label> <br>
+                        <input type="text" name="title" id="title"> <br>
+                        <label for="content">Content</label> <br>
+                        <textarea class="content-input" id="content" name="content"  rows="10" cols="33"></textarea> <br>
+                        <label for="category">Category</label> <br>
+                        <select name="category" id="cateory">
+                            <option value="news">News</option>
+                            <option value="announcements">Announcements</option>
+                            <option value="technology">Technology</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="travel">Travel</option>
+                            <option value="food">Food</option>
+                            <option value="fitness">Fitness</option>
+                            <option value="education">Education</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="health-wellness">Health & Wellness</option>
+                            <option value="personal-development">Personal Development</option>
+                            <option value="finance">Finance</option>
+                            <option value="business">Business</option>
+                            <option value="art-design">Art & Design</option>
+                            <option value="photography">Photography</option>
+                            <option value="science">Science</option>
+                            <option value="diy-craft">DIY & Craft</option>
+                            <option value="relationships">Relationships</option>
+                            <option value="opinion">Opinion</option>
+                        </select> <br>
+                        <label for="tags">Tags</label> <br>
+                        <input type="text" name="tags" id="tags" placeholder="Separate Tags with a comma (,)"> <br>
+                        <button class="post-button" type="submit">Post</button>
+                    </form>
+                </div>
+                {% elif title is none %}
+                <div class="posts-list"></div>
+                {% for post in posts %}
+                <a class="post-item" href="{{ url_for('update', post_id = post[0]) }}" >
+                    <div class="post-item-content">
+                        <div>
+                            <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+                        </div>
+                        <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
+                    </div>
+                </a>
+                {% endfor %}
+                </div>
+                {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
