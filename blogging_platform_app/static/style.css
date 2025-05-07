@@ -155,7 +155,7 @@ button:hover {
 }
 
 .post-item:hover {
-    background-color: white; 
+    background-color: #ffffff; 
     color: #232f3e;
 }
 
@@ -164,3 +164,11 @@ button:hover {
     margin-left: 20px;
 }
 
+.post-list-button {
+    all: unset; 
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    cursor: pointer;
+}
