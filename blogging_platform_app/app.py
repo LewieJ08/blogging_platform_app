@@ -35,11 +35,12 @@ def update():
     posts = get_all_posts()
 
     if request.method == "POST":
-        pass 
+        return render_template("update.html", title = False)
+    
     elif request.method == "PUT":
         pass
-
-    return render_template("update.html", posts = posts)
+        
+    return render_template("update.html", posts = posts, title = None)
 
 @app.route("/delete", methods=["GET","POST"])
 
