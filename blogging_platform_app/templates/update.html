@@ -26,8 +26,8 @@
         <div class="main">
             <h1>Blogging Platform</h1>
             <h2>Update Post</h2>
-            <hr>
                 {% if title %}
+                <hr>
                 <div class="div-form">
                     <h2>Post Updated!</h2>
                     <h3>Title: {{ title }}</h3>
@@ -36,8 +36,9 @@
                     </form>
                 </div>
                 {% elif title is false %}
+                <hr>
                 <div class="div-form">
-                    <form action="{{ url_for('update') }}" method="post">
+                    <form>
                         <label for="title">Title</label> <br>
                         <input type="text" name="title" id="title"> <br>
                         <label for="content">Content</label> <br>
@@ -71,6 +72,8 @@
                     </form>
                 </div>
                 {% elif title is none %}
+                <h3 class="alt-h3">Select Post to Update</h3>
+                <hr>
                 {% for post in posts %}
                 <form class="post-item" action="{{ url_for('update', post_id = post[0]) }}" method="post">
                     <button type="submit" class="post-list-button">
