@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Delete Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="tab">
+            <h1>Options</h1>
+            <form action="{{ url_for('index') }}" method="get">
+                <button class="tab-button" type="submit">Main Menu</button>
+            </form>
+            <form action="{{ url_for('search') }}" method="get">
+                <button class="tab-button" type="submit">Search</button>
+            </form>
+            <form action="{{ url_for('create') }}" method="get">
+                <button class="tab-button" type="submit">Create</button>
+            </form>
+            <form action="{{ url_for('update') }}" method="get">
+                <button class="tab-button" type="submit">Update</button>
+            </form>
+        </div>
+        <div class="main">
+            <h1>Blogging Platform</h1>
+            <h2>Main Menu</h2>
+            <h3 class="alt-h3">Select Post to Delete</h3> <hr>
+            <div class="posts-list"></div>
+            {% for post in posts %}
+            <a class="post-item" href="{{ url_for('post', post_id = post[0]) }}">
+                <div class="post-item-content">
+                    <div>
+                        <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+                    </div>
+                    <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
+                </div>
+            </a>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
