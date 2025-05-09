@@ -58,3 +58,14 @@ def update_post(title,content,category,tags,post_id):
         with conn.cursor() as cur:
             cur.execute(query,(title,content,category,tags,post_id))
             conn.commit()
+
+def delete_post(post_id):
+    with open("queries/delete_post.sql") as file:
+        query = file.read()
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query,(post_id,)) 
+            conn.commit()
+
+    
