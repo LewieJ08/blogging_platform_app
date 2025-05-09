@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, url_for, redirect
-from database import init_database, create_post, get_all_posts, get_post_by_id
+from flask import Flask, render_template, request, url_for, redirect, jsonify
+from database import init_database, create_post, update_post, get_all_posts, get_post_by_id
 
 app = Flask(__name__)
 
@@ -38,8 +38,25 @@ def update():
         return render_template("update.html", title = False)
     
     elif request.method == "PUT":
-        pass
+        data = request.get_json()
+        post_id = request.args.get("post_id")
+        print(post_id)
+
+        if not data["title"] or not data["content"] or not data["category"]:
+            print("form field empty")
+            return render_template("update.html", title = False)
         
+        title = data["title"]
+        content = data["content"]
+        category = data["category"]
+        tags = data["tags"]
+
+        tags = tags.split(",")
+
+        update_post(title,content,category,tags,post_id)
+        
+        return jsonify({"message": "post updated successfully"}, 200)
+
     return render_template("update.html", posts = posts, title = None)
 
 @app.route("/delete", methods=["GET","POST"])
