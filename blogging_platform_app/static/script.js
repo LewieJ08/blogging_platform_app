@@ -24,6 +24,7 @@ document.getElementById("update-form").addEventListener("submit", async function
     if (response.ok) {
       const result = await response.json();
       console.log('Success:', result);
+      window.alert("Post Updated Successfully")
       window.location.href = '/';
     } else {
       console.error('Server error:', response.statusText);
