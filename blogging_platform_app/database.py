@@ -49,3 +49,12 @@ def create_post(title,content,category,tags):
         with conn.cursor() as cur:
             cur.execute(query,(title,content,category,tags))
             conn.commit()
+
+def update_post(title,content,category,tags,post_id):
+    with open("queries/update_post.sql","r") as file:
+        query = file.read()
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(query,(title,content,category,tags,post_id))
+            conn.commit()
