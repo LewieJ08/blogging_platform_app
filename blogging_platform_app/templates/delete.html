@@ -29,14 +29,16 @@
             <h3 class="alt-h3">Select Post to Delete</h3> <hr>
             <div class="posts-list"></div>
             {% for post in posts %}
-            <a class="post-item" href="{{ url_for('post', post_id = post[0]) }}">
-                <div class="post-item-content">
-                    <div>
-                        <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+            <form class="delete-form" action="{{ url_for('delete', post_id = post[0]) }}" method="post">
+                <button type="submit" class="post-list-button">
+                    <div class="post-item-content">
+                        <div>
+                            <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+                        </div>
+                        <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
                     </div>
-                    <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
-                </div>
-            </a>
+                </button>
+            </form>
             {% endfor %}
             </div>
         </div>
