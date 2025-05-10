@@ -66,7 +66,7 @@ select {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-input {
+.form-input {
     margin-bottom: 10px;
     color: white;
     background-color: #232f3e;
@@ -76,6 +76,18 @@ input {
     border-width: 0.5px;
     width: 496px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 300px;
+    padding: 5px;
 }
 
 button:hover {
