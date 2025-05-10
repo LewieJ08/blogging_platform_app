@@ -40,7 +40,6 @@ def update():
     elif request.method == "PUT":
         data = request.get_json()
         post_id = request.args.get("post_id")
-        print(post_id)
 
         if not data["title"] or not data["content"] or not data["category"]:
             print("form field empty")
