@@ -40,7 +40,7 @@ def get_post_by_id(post_id):
             cur.execute(query,(post_id,)) 
             return cur.fetchall()
         
-def search(term):
+def search_posts(term):
     with open("queries/search_posts.sql") as file:
         query = file.read()
     
