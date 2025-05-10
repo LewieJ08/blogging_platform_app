@@ -66,7 +66,7 @@ def delete():
 
     if request.method == "DELETE":
         post_id = request.args.get("post_id")
-        print(post_id)
+        delete_post(post_id)
 
     return render_template("delete.html", posts = posts)
 
