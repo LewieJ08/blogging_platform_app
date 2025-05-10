@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, url_for, redirect, jsonify
-from database import init_database, create_post, update_post, delete_post, get_all_posts, get_post_by_id
+from flask import Flask, render_template, request, jsonify
+from database import init_database, search_posts, create_post, update_post, delete_post, get_all_posts, get_post_by_id
 
 app = Flask(__name__)
 
@@ -72,7 +72,18 @@ def delete():
 @app.route("/search", methods=["GET","POST"])
 
 def search():
-    return render_template("search.html")
+    posts = get_all_posts()
+    if request.method == "POST":
+        term = request.form["term"]
+
+        posts = search_posts(term)
+
+        if posts == []:
+            return render_template("search.html", posts = False)
+
+        return render_template("search.html", posts = posts)
+
+    return render_template("search.html", posts = posts)
 
 @app.route("/post/<int:post_id>", methods=["GET","POST"])
 
