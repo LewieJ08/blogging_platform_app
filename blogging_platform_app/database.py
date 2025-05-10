@@ -46,7 +46,9 @@ def search_posts(term):
     
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(query,(term,)) 
+            
+            like_term = f"%{term}%"
+            cur.execute(query,(like_term,like_term,like_term,like_term)) 
             return cur.fetchall()
 
 def create_post(title,content,category,tags):
