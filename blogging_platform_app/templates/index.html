@@ -28,6 +28,7 @@
             <h2>Main Menu</h2>
             <h3 class="alt-h3">Posts:</h3> <hr>
             <div class="posts-list"></div>
+            {% if posts is not none %}
             {% for post in posts %}
             <a class="post-item" href="{{ url_for('post', post_id = post[0]) }}">
                 <div class="post-item-content">
@@ -38,6 +39,10 @@
                 </div>
             </a>
             {% endfor %}
+            {% else %}
+            <h2>Sorry! Looks like there are no active posts.</h2>
+            <h3>Created posts will appear here.</h3>
+            {% endif %}
             </div>
         </div>
     </div>
