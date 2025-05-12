@@ -28,6 +28,7 @@
             <h2>Main Menu</h2>
             <h3 class="alt-h3">Select Post to Delete</h3> <hr>
             <div class="posts-list"></div>
+            {% if posts is not none %}
             {% for post in posts %}
             <form class="delete-form" action="{{ url_for('delete', post_id = post[0]) }}" method="post">
                 <button type="submit" class="post-list-button">
@@ -40,6 +41,10 @@
                 </button>
             </form>
             {% endfor %}
+            {% else %}
+            <h2>Sorry! Looks like there are no active posts.</h2>
+            <h3>Created posts will appear here.</h3>
+            {% endif %}
             </div>
         </div>
     </div>
