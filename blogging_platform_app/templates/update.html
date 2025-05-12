@@ -74,18 +74,23 @@
                 {% elif title is none %}
                 <h3 class="alt-h3">Select Post to Update</h3>
                 <hr>
-                {% for post in posts %}
-                <form class="post-item" action="{{ url_for('update', post_id = post[0]) }}" method="post">
-                    <button type="submit" class="post-list-button">
-                        <div class="post-item-content">
-                            <div>
-                                <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+                    {% if posts is not none %}
+                    {% for post in posts %}
+                    <form class="post-item" action="{{ url_for('update', post_id = post[0]) }}" method="post">
+                        <button type="submit" class="post-list-button">
+                            <div class="post-item-content">
+                                <div>
+                                    <strong>{{ post[1] }}</strong> - Category: {{ post[3]|capitalize }}
+                                </div>
+                                <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
                             </div>
-                            <small class="post-date">{{ post[5].strftime('%d-%m-%Y') }}</small>
-                        </div>
-                    </button>
-                </form>
-                {% endfor %}
+                        </button>
+                    </form>
+                    {% endfor %}
+                    {% else %}
+                    <h2>Sorry! Looks like there are no active posts.</h2>
+                    <h3>Created posts will appear here.</h3>
+                    {% endif %}
                 {% endif %}
         </div>
     </div>
