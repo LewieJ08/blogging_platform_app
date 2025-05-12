@@ -1,0 +1,5 @@
+recursive-include blogging_platform_app/templates *.html
+recursive-include blogging_platform_app/static style.css
+recursive-include blogging_platform_app/static script.js
+recursive-include blogging_platform_app/queries *.sql
+recursive-include blogging_platform_app/schema.sql
