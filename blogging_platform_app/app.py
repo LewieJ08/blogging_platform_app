@@ -38,6 +38,9 @@ def create():
 def update():
     posts = get_all_posts()
 
+    if posts == []:
+        return render_template("update.html", title = None, posts = None)
+
     if request.method == "POST":
         return render_template("update.html", title = False)
     
