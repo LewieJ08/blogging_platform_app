@@ -70,7 +70,10 @@ def update():
 def delete():
     posts = get_all_posts()
 
-    if request.method == "DELETE":
+    if posts == []:
+        return render_template("delete.html", posts = None)
+
+    elif request.method == "DELETE":
         post_id = request.args.get("post_id")
         delete_post(post_id)
 
