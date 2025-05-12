@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 def index():
     posts = get_all_posts()
+
+    if posts == []:
+        return render_template("index.html", posts = None)
+    
     return render_template("index.html", posts = posts)
 
 @app.route("/create", methods=["GET","POST"])
